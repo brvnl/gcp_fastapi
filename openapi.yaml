@@ -1,0 +1,21 @@
+# openapi.yaml
+swagger: "2.0"
+info:
+  title: "Test API"
+  description: "A sample API on GCP"
+  version: "1.0.0"
+host: "my-api.endpoints.YOUR-PROJECT-ID.cloud.goog" # This helps identify the service
+schemes:
+  - "https"
+produces:
+  - "application/json"
+paths:
+  /my-endpoint:
+    get:
+      summary: "My Endpoint"
+      operationId: "myEndpoint"
+      x-google-backend:
+        address: "https://YOUR-CLOUDRUN-SERVICE-URL" # The actual URL from Step 1
+      responses:
+        "200":
+          description: "A successful response"
